@@ -3,49 +3,63 @@ import React,{useState, useEffect} from 'react';
 import './FormInput.css';
 
 function FormInput(props){
-const initialValues ={ username:'',  email:'', password:''}
-const [formValues,setFormValues]=useState(initialValues);
-const [formErrors,setFormErrors]=useState('');
-const[isSubmit, setIsSubmit]=useState(false);
+const[fname,setFname]=useState('');
+const[lname,setLname]=useState('');
+const[email,setEmail]=useState('');
+const[orgname,setOrgname]=useState('');
+const[phone,setPhone]=useState('');
+const[fnameError,setFnameError]=useState('');
+const[lnameError,setLnameError]=useState('');
+const[emailError,setEmailError]=useState('');
+const[orgnameError,setOrgnameError]=useState('');
+const[phoneError,setPhoneError]=useState('');
+const[successmsg,setSuccessMsg]=useState('')
+const changeHandleFname=(e)=>{
+  setSuccessMsg ('');
+  setFnameError('');
+  setFname(e.target.value);
+}
+const changeHandleLname=(e)=>{
+  setSuccessMsg ('');
+  setLnameError('');
+  setLname(e.target.value);
+}
+const changeHandleEmail=(e)=>{
+  setSuccessMsg ('');
+  setEmailError('');
+  setEmail(e.target.value);
+}
+const changeHandleOrgname=(e)=>{
+  setSuccessMsg ('');
+  setOrgnameError('');
+  setOrgname(e.target.value);
+}
+const changeHandlePhone=(e)=>{
+  setSuccessMsg ('');
+  setPhoneError('');
+  setPhone(e.target.value);
+}
+const submitHandel=(event) =>{
+  event.preventDefault();
+  if(!fname){
+    setFnameError("Required");
+  }
+  if(!lname){
+    setLnameError("Required");
+  }
+  if(!email){
+    setEmailError("Required");
+  }
+  if(!orgname){
+    setOrgnameError("Required");
+  }
+  if(!phone){
+    setPhoneError("Required");
+  }
+  
 
 
-const changeHandle =(event)=>{
-const {name,value} =event.target;
-setFormValues({...formValues, [name]:value});
-console.log (formValues);
-}
 
-const submitHandel =(event)=>{
-  event.preventdefault();
-  setFormErrors(validate(formValues));
-  setIsSubmit(true);
-}
-useEffect(() => {
-  console.log(formErrors);
-if(Object.keys(formErrors).length === 0 && isSubmit){
-  console.log(formValues);
-}
-},[formErrors]);
-
-const validate = (values)=>{
-const errors = {};
-
-if(!values.fname){
-  errors.fname = 'First Name is required';
-}
-if(!values.lname){
-  errors.lname = 'last Name is required';
-}
-if(!values.orgname){
-  errors.orgname =  'This Field is required';
-}
-if(!values.email){
-  errors.email = 'Email is required';
-}
-if(!values.fphone){
-  errors.fphone = 'Phone Number is required';
-}
-return errors;
 };
 
 return(
@@ -61,31 +75,31 @@ return(
       <div className='form-controls'>
           <div className='form-control'> 
     <label>First Name:</label> <br/>
-      <input type="text" name='fname' value={formValues.fname} onChange={changeHandle}/>
+      <input type="text" name='fname' value={fname} onChange={changeHandleFname}/>
           </div>
-           <p>{formErrors.fname}</p>
+          {fnameError&&<div className='error-msg'>{fnameError}</div>}
            <div className='form-control'> 
     <label>Last Name:</label> <br/>
-      <input type="text" name='lname'  value={formValues.lname}onChange={changeHandle}/>
+      <input type="text" name='lname'  value={lname}onChange={changeHandleLname}/>
            </div>  
-           <p>{formErrors.lname}</p>   
+           {lnameError&&<div className='error-msg'>{lnameError}</div>} 
           <div className='form-control'> 
     <label>Organisation Name:</label> <br/>
-      <input type="text" name='orgname'  value={formValues.orgname} onChange={changeHandle}/>
+      <input type="text" name='orgname'  value={orgname} onChange={changeHandleOrgname}/>
           </div>   
-          <p>{formErrors.orgname}</p>   
+          {orgnameError&&<div className='error-msg'>{orgnameError}</div>}
           <div className='form-control'> 
     <label>Email:</label> <br/>
-      <input type="text" name='email'  value={formValues.email} onChange={changeHandle}/>
+      <input type="text" name='email'  value={email} onChange={changeHandleEmail}/>
           </div>  
-          <p>{formErrors.email}</p>   
+          {emailError&&<div className='error-msg'>{emailError}</div>}   
           <div className='form-control'> 
     <label>Phone Number:</label> <br/>
-      <input type="text" name='fphone'  value={formValues.password} onChange={changeHandle}/>
+      <input type="text" name='fphone'  value={phone} onChange={changeHandlePhone}/>
           </div>  
-          <p>{formErrors.fphone}</p>   
+          {phoneError&&<div className='error-msg'>{phoneError}</div>}   
          
-       <button className='submit'>submit</button>
+       <button className='submit'>submit </button>
      
           
       </div>
