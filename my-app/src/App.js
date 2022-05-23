@@ -1,6 +1,6 @@
 import React,{ useState,useEffect} from 'react';
 import './App.css';
-import FormInput from './Components/FormInput';
+import FormInput from './Components/SimpleForm/FormInput';
 function App() {
 
   return (
