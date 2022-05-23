@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+}
+
+
+.form-control,h1{
+    display: flex;
+    justify-content: center;
+}
+input{
+    width: 40em;
+    margin-bottom: 14px;
+    padding: 8px;
+}
+label{
+    font-weight: bolder;
+}
+button{
+    display: block;
+    margin: auto;
+    text-align: center;
+    background-color: blue;
+    font-size: large;
+    border-radius: 11px;
+}
+
+
+
+
+
+
+
+
+span{
+    color:red;
+}
