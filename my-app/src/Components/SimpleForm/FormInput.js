@@ -51,6 +51,11 @@ const submitHandel=(event) =>{
   if(!email){
     setEmailError("Required");
   }
+  else if (
+    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+  ) {
+  setEmailError ('Invalid email address') ;
+  }
   if(!orgname){
     setOrgnameError("Required");
   }
@@ -75,12 +80,12 @@ return(
   
       <div className='form-controls'>
           <div className='form-control'> 
-    <label>First Name:</label> <br/>
+    <label>First Name:</label><br/> 
       <input type="text" name='fname' value={fname} onChange={changeHandleFname}/>
           </div>
           {fnameError&&<div className='error-msg'>{fnameError}</div>}
            <div className='form-control'> 
-    <label>Last Name:</label> <br/>
+    <label>Last Name:</label><br/>
       <input type="text" name='lname'  value={lname}onChange={changeHandleLname}/>
            </div>  
            {lnameError&&<div className='error-msg'>{lnameError}</div>} 

@@ -10,7 +10,7 @@ const onSubmit = ( values) => {
 export default function FinalFormInput() {
 
   return (
-    <div>
+    <div className='form-controls'>
       <h1>React Final Form</h1>
        <Form
       onSubmit={onSubmit}
@@ -28,6 +28,11 @@ export default function FinalFormInput() {
         if (!values.email) {
           errors.email = 'Required'
         }
+        else if (
+          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+        ) {
+          errors.email = 'Invalid email address';
+        }
         if (!values.phone) {
           errors.phone = 'Required'
         } 
@@ -35,6 +40,7 @@ export default function FinalFormInput() {
         return errors
       }}
       render={({ handleSubmit, form, submitting, values }) => (
+ 
         <form onSubmit={handleSubmit}>
           <Field name="fname">
             {({ input, meta }) => (
@@ -88,9 +94,11 @@ export default function FinalFormInput() {
             
           </div>
          
-        </form>
+        </form> 
+
       )}
+      
     />
-    </div>
+   </div>
   )
 }

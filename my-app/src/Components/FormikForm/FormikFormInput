@@ -1,7 +1,7 @@
 import React from 'react'
 import {Formik,Form,Field,ErrorMessage} from 'formik';
-import './FormInput.css'
-function FormInput() {
+import './FormikForm.css'
+function FormikFormInput() {
    
   return (
     <div>
@@ -82,4 +82,4 @@ function FormInput() {
   )
 }
 
-export default FormInput
+export default FormikFormInput

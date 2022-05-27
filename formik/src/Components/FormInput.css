@@ -1,6 +1,6 @@
 form{
     box-sizing: border-box;
-    text-align: center;
+    
 }
 
 input{
@@ -19,12 +19,14 @@ background-color: rgb(103, 103, 232);
 font-size: 20px;
 }
 .form-controls{
-
+display: block;
+margin: auto;
 border: 1px solid gray;
 padding: 15px;
 padding-bottom: 10px;
-
+width: 650px;
 box-shadow: 0px 1px 5px 5px #888888;
+margin-top: 45px;
 }
 .header-control{
     padding: 10px;
@@ -53,7 +55,7 @@ box-shadow: 0px 1px 5px 5px #888888;
     padding: 10px;
     font-size: 18px;
 }
-p{
+h1{
     font-size: 22px;
    font-weight: bolder;
     margin-left: 30%;
