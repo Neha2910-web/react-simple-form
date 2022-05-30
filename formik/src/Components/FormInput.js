@@ -26,6 +26,10 @@ function FormInput() {
         }
         if(!values.phone){
             errors.phone= 'Required'
+        }else if (
+          !/^\d{10}$/.test(values.phone)
+        ){
+          errors.phone ='Invalid phone address';
         }
         return errors;
       }}
@@ -66,7 +70,7 @@ function FormInput() {
        </div>
        <div className='form-control'>
         <label>Phone Number:</label><br/>
-        <Field name='phone' type='number'/>
+        <Field name='phone' type='text'/>
         <ErrorMessage className='error-msg' name="phone" component="div" />
         <br/>
         </div>

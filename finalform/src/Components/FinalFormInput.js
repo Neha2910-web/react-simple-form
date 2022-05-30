@@ -10,7 +10,7 @@ const onSubmit = ( values) => {
 export default function FinalFormInput() {
 
   return (
-    <div className='form-controls'>
+    <div className='form-controls' >
       <h1>React Final Form</h1>
        <Form
       onSubmit={onSubmit}
@@ -35,17 +35,21 @@ export default function FinalFormInput() {
         }
         if (!values.phone) {
           errors.phone = 'Required'
-        } 
+        } else if (!/^\d{10}$/.test(values.phone))
+        {
+          errors.phone='Invalid phone Number';
+        }
         
         return errors
       }}
       render={({ handleSubmit, form, submitting, values }) => (
  
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
           <Field name="fname">
             {({ input, meta }) => (
               <div className='form-control'>
                 <label>First Name</label>
+        
                 <input {...input} type="text"  />
                 {meta.error && meta.touched && <span>{meta.error}</span>}
               </div>

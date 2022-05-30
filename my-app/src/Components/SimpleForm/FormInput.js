@@ -14,9 +14,11 @@ const[lnameError,setLnameError]=useState('');
 const[emailError,setEmailError]=useState('');
 const[orgnameError,setOrgnameError]=useState('');
 const[phoneError,setPhoneError]=useState('');
-const[successmsg,setSuccessMsg]=useState('')
+const[successmsg,setSuccessMsg]=useState('');
+const[isSubmitting,setIsSubmitting]=useState('')
 const changeHandleFname=(e)=>{
   setSuccessMsg ('');
+
   setFnameError('');
   setFname(e.target.value);
 }
@@ -42,6 +44,7 @@ const changeHandlePhone=(e)=>{
 }
 const submitHandel=(event) =>{
   event.preventDefault();
+  setIsSubmitting('');
   if(!fname){
     setFnameError("Required");
   }
