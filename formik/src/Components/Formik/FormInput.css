@@ -1,13 +1,13 @@
 form{
     box-sizing: border-box;
+    width: 100%;
 }
 
-input{
-    padding:8px ;
-    margin:8px ;
+ input{
+    padding:8px;
     width: 600px;
-}
-label{
+} 
+ label{
     font-weight: bolder;
 }
 .submit {
@@ -16,20 +16,23 @@ margin: auto;
 padding: 8px;
 background-color: rgb(103, 103, 232);
 font-size: 20px;
+border-radius: 12px;
 }
-.form-controls{
-
+.formik-form-controls{
+display: block;
+margin: auto;
 border: 1px solid gray;
 padding: 15px;
 padding-bottom: 10px;
-
+width: 650px;
 box-shadow: 0px 1px 5px 5px #888888;
+margin-top: 45px;
 }
 .header-control{
     padding: 10px;
-    margin-top: 30%;
+  
     margin-bottom: 30px;
-    margin-left: 120px;
+    margin-left: 37%;
 }
 .formik-button{
     background-color: rgb(101, 101, 226);
@@ -52,11 +55,12 @@ box-shadow: 0px 1px 5px 5px #888888;
     padding: 10px;
     font-size: 18px;
 }
-p{
+
+h1{
     font-size: 22px;
    font-weight: bolder;
     margin-left: 30%;
 }
 .error-msg{
-    color: red;
+    color:red;
 }

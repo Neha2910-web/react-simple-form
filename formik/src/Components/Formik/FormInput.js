@@ -1,7 +1,7 @@
 import React from 'react'
 import {Formik,Form,Field,ErrorMessage} from 'formik';
-import './FormikForm.css'
-function FormikFormInput() {
+import './FormInput.css'
+function FormInput() {
    
   return (
     <div>
@@ -9,8 +9,8 @@ function FormikFormInput() {
        validate={values => {
         const errors = {};
         if(!values.fname){
-            errors.fname='Required'
-        }
+            errors.fname='Required';
+        } 
         if(!values.lname){
             errors.lname='Required'
         }
@@ -26,6 +26,10 @@ function FormikFormInput() {
         }
         if(!values.phone){
             errors.phone= 'Required'
+        }else if (
+          !/^\d{10}$/.test(values.phone)
+        ){
+          errors.phone ='Invalid phone address';
         }
         return errors;
       }}
@@ -37,42 +41,37 @@ function FormikFormInput() {
     }}
 >
 {({ isSubmitting }) => (
-  <div className='form-controls'>
+  <div className='formik-form-controls'>
       <Form>
         <h1>Formik Form</h1>
-        <div className='form-control'>
+        
         <label>First Name:</label><br/>
         <Field name='fname' type='text'/>
         <ErrorMessage className='error-msg'  name="fname" component="div" />
         <br/>
-</div>
-<div className='form-control'>
+
         <label>Last Name:</label><br/>
         <Field name='lname' type='text'/>
         <ErrorMessage className='error-msg' name="lname" component= 'div' />
         <br/>
-        </div>
-        <div className='form-control'>
+      
          <label>Organisation Name:</label><br/>
         <Field name='orgname' type='text' />
         <ErrorMessage className='error-msg' name="orgname" component="div" />
         <br/>
-</div>
-<div className='form-control'>
+
         <label>Email:</label><br/>
         <Field name='email' type='email'  />
         <ErrorMessage  className='error-msg' name="email" component="div" />
         <br/>
-       </div>
-       <div className='form-control'>
+    
         <label>Phone Number:</label><br/>
-        <Field name='phone' type='number'/>
+        <Field name='phone' type='text'/>
         <ErrorMessage className='error-msg' name="phone" component="div" />
         <br/>
-        </div>
-        <div className='form-control'>
+     
        <button type="submit" className='submit'>Submit</button>
-       </div>
+     
       </Form>
       </div>
 )}
@@ -82,4 +81,4 @@ function FormikFormInput() {
   )
 }
 
-export default FormikFormInput
+export default FormInput

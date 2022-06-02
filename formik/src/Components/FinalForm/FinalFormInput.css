@@ -13,13 +13,15 @@ margin-top: 45px;
 flex-flow: row wrap;
     margin: 34px -1rem 1rem 22rem;
 }
-
-.form-control,h1{
-    display: flex;
+ h1{
+  display: flex;
     justify-content: center;
     
     flex: 0 1 100%;
-    padding: 12px 5rem;
+ }
+.form-control {
+    margin-left: 15px;
+    padding: 8px 5rem;
 }
 input{
     width: 40em;
@@ -29,20 +31,15 @@ input{
     
     display: block;
 }
-label{
-    font-weight: bolder;
-    display: block;
-    width: 100%;
-    max-width: 100%;
-}
-button{
+
+ .buttons{
     display: block;
     margin: auto;
     text-align: center;
     background-color: blue;
     font-size: large;
     border-radius: 11px;
-}
+} 
 
 
 
@@ -53,4 +50,4 @@ button{
 
 span{
     color:red;
-}
+} 

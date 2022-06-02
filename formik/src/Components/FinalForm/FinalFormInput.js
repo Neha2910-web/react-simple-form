@@ -91,12 +91,12 @@ export default function FinalFormInput() {
               </div>
             )}
           </Field>
-          <div className="buttons">
-            <button type="submit" disabled={submitting}>
+          
+            <button className='buttons' type="submit" disabled={submitting}>
               Submit
             </button>
             
-          </div>
+         
          
         </form> 
 
